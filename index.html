@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>AI Marketing Venture · Материалы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f2;--ink:#1c1a17;--ink-soft:#5b564e;--ink-faint:#8a847a;--accent:#1f5f8b;--line:#e2dcd1;--card:#fffdf9;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Golos Text',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:32px}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:760px;width:100%}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+h1{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{margin-top:16px;color:var(--ink-soft);font-size:16px;max-width:60ch}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+a.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s;border-left:3px solid var(--accent);display:block}
+a.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(0,0,0,.28)}
+a.card .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+a.card h2{font-size:20px;font-weight:700;margin:8px 0 6px;letter-spacing:-.01em}
+a.card p{font-size:14px;color:var(--ink-soft)}
+.docs{margin-top:32px;border-top:1px solid var(--line);padding-top:22px}
+.docs .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.docs ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.docs a{font-size:13px;color:var(--ink-soft);text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 13px;transition:border-color .2s}
+.docs a:hover{border-color:var(--accent);color:var(--ink)}
+.note{margin-top:30px;font-size:12px;color:var(--ink-faint);max-width:66ch}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Private · noindex · для Mikhail + Anna</div>
+  <h1>AI Marketing Venture: <em>ресерч, план и таргеты</em></h1>
+  <p class="sub">Две презентационные страницы плюс полная база отчётов. Ссылка приватная и закрыта от поисковиков; не публикуйте её открыто.</p>
+  <div class="cards">
+    <a class="card" href="presentation.html">
+      <div class="n">01 · Стратегия</div>
+      <h2>Ресерч и план</h2>
+      <p>Вердикт, рынки, ICP, оффер-лестница, GTM, план 90 дней, юридика, экономика.</p>
+    </a>
+    <a class="card" href="targets.html">
+      <div class="n">02 · Спрос</div>
+      <h2>Таргет-карта</h2>
+      <p>103 верифицированные компании, 42 Tier A с покупателями и углами захода, фильтр по полосам.</p>
+    </a>
+  </div>
+  <div class="docs">
+    <div class="lbl">Исходные документы (markdown)</div>
+    <ul>
+      <li><a href="PLAN.md">PLAN.md</a></li>
+      <li><a href="TARGETS.md">TARGETS.md</a></li>
+      <li><a href="research/">research/ (18 отчётов)</a></li>
+    </ul>
+  </div>
+  <p class="note">Материалы содержат стратегию, поимённые таргеты, партнёрские и юридические детали. Ссылка неугадываемая и с meta noindex, но GitHub Pages технически публичен: не постить в открытый доступ.</p>
+</div>
+</body>
+</html>

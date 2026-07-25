@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Таргет-карта спроса · AI Marketing Venture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf7f2; --bg-soft:#f3efe7; --ink:#1c1a17; --ink-soft:#5b564e; --ink-faint:#8a847a;
+  --accent:#1f5f8b; --accent-soft:#e8eff4; --line:#e2dcd1; --line-strong:#cfc7b8;
+  --good:#2e6b4f; --bad:#9c3d2e; --card:#fffdf9;
+  --crypto:#1f5f8b; --saas:#5a4b8a; --agency:#2e6b4f; --ru:#9c5a2e;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Golos Text',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+.mono{font-family:'JetBrains Mono',monospace}
+::selection{background:var(--accent);color:#fff}
+
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:60;transition:width .1s linear}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-brand{font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.nav-brand span{color:var(--accent)}
+nav a{color:var(--ink-soft);text-decoration:none;font-size:13px;font-weight:500;white-space:nowrap;padding:4px 2px;border-bottom:2px solid transparent;transition:color .2s}
+nav a:hover{color:var(--ink)}
+nav a.active{color:var(--accent);border-color:var(--accent)}
+.nav-back{margin-left:auto;font-size:12px;color:var(--ink-faint)}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+header{padding:64px 0 44px;border-bottom:1px solid var(--line)}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+h1{font-size:clamp(28px,4.4vw,48px);font-weight:800;letter-spacing:-.03em;line-height:1.07}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{margin-top:20px;font-size:17px;color:var(--ink-soft);max-width:60ch}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:40px}
+.stat{background:var(--card);padding:20px 22px}
+.stat b{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:600;display:block;letter-spacing:-.02em}
+.stat span{font-size:12.5px;color:var(--ink-faint);line-height:1.4;display:block;margin-top:4px}
+
+/* filter bar */
+.filterbar{position:sticky;top:56px;z-index:40;background:rgba(250,247,242,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 0}
+.filter-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filter-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-right:6px}
+.chip{border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:all .18s;font-family:inherit}
+.chip:hover{border-color:var(--ink-faint);transform:translateY(-1px)}
+.chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
+
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+.band-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.band-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:6px;color:#fff}
+h2{font-size:clamp(20px,2.8vw,28px);font-weight:800;letter-spacing:-.02em}
+.band-sub{color:var(--ink-soft);max-width:74ch;margin:10px 0 24px;font-size:15px}
+
+/* target cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;border-left:3px solid var(--line-strong);transition:box-shadow .2s,transform .2s}
+.tcard:hover{box-shadow:0 14px 34px -20px rgba(0,0,0,.22);transform:translateY(-2px)}
+.tcard .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
+.tcard h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.tcard .meta{font-size:12.5px;color:var(--ink-faint);margin-bottom:12px}
+.tcard .status{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);white-space:nowrap;font-weight:600}
+.tcard .angle{font-size:14px;color:var(--ink-soft);border-top:1px dashed var(--line-strong);padding-top:11px;margin-top:2px}
+.tcard .angle b{color:var(--ink);font-weight:600}
+.tcard .buyer{font-size:12.5px;color:var(--ink-faint);margin-top:8px}
+.tcard .buyer strong{color:var(--ink-soft);font-weight:600}
+
+/* accent per band */
+.b-crypto .tcard{border-left-color:var(--crypto)} .b-crypto .band-tag{background:var(--crypto)} .b-crypto .tcard .status{color:var(--crypto)}
+.b-saas .tcard{border-left-color:var(--saas)} .b-saas .band-tag{background:var(--saas)} .b-saas .tcard .status{color:var(--saas)}
+.b-agency .tcard{border-left-color:var(--agency)} .b-agency .band-tag{background:var(--agency)} .b-agency .tcard .status{color:var(--agency)}
+.b-ru .tcard{border-left-color:var(--ru)} .b-ru .band-tag{background:var(--ru)} .b-ru .tcard .status{color:var(--ru)}
+
+.hidden{display:none!important}
+
+/* insights + waves */
+.callout{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 20px;margin:16px 0;max-width:82ch}
+.callout p{margin:0;color:var(--ink);font-size:15px}
+.ins{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.ins .item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.ins .item .n{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);font-weight:600}
+.ins .item h4{font-size:15px;font-weight:600;margin:5px 0 5px}
+.ins .item p{font-size:13.5px;color:var(--ink-soft);margin:0}
+.waves{border-left:2px solid var(--line-strong);margin:20px 0 0 6px}
+.w-item{position:relative;padding:0 0 22px 28px}
+.w-item::before{content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.w-when{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.w-item p{font-size:14px;color:var(--ink-soft);margin:0;max-width:70ch}
+.w-item b{color:var(--ink)}
+
+footer{padding:44px 0 68px}
+footer p{font-size:13px;color:var(--ink-faint);max-width:80ch}
+
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:800px){
+  .grid,.ins{grid-template-columns:1fr}
+  .statrow{grid-template-columns:1fr 1fr}
+  header{padding:44px 0 32px}
+  section{padding:40px 0}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">TARGET&nbsp;<span>MAP</span></div>
+    <a href="#crypto">Crypto/Fintech</a>
+    <a href="#saas">B2B SaaS</a>
+    <a href="#agency">Агентства</a>
+    <a href="#ru">РФ</a>
+    <a href="#insights">Выводы</a>
+    <a href="#waves">Волны</a>
+    <span class="nav-back">presentation.html - стратегия</span>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="kicker">Поимённая карта спроса · верификация URL по каждой компании · июль 2026</div>
+  <h1>103 таргета: <em>кому именно</em> и с каким углом заходить</h1>
+  <p class="hero-sub">Четыре полосы, каждая компания подтверждена веб-источником в сессии ресерча; непроверенные атрибуты помечены. Ниже - Tier A по каждой полосе с сигналом статуса, покупателем и углом захода. Фильтр переключает полосы.</p>
+  <div class="statrow">
+    <div class="stat"><b style="color:var(--crypto)">32</b><span>EN crypto/fintech (12 Tier A) - MiCA/VARA/FCA лицензии</span></div>
+    <div class="stat"><b style="color:var(--saas)">24</b><span>EN B2B SaaS (10 Tier A) - fintech-adjacent, свежие раунды</span></div>
+    <div class="stat"><b style="color:var(--agency)">19</b><span>EN-агентства (10 Tier A) - white-label, с именами фаундеров</span></div>
+    <div class="stat"><b style="color:var(--ru)">28</b><span>РФ (топ-10 Tier A) - бренды, агентства, финтех</span></div>
+  </div>
+</header>
+
+<div class="filterbar">
+  <div class="filter-inner">
+    <span class="filter-lbl">Полоса</span>
+    <button class="chip active" data-f="all">Все</button>
+    <button class="chip" data-f="crypto"><span class="dot" style="background:var(--crypto)"></span>Crypto/Fintech</button>
+    <button class="chip" data-f="saas"><span class="dot" style="background:var(--saas)"></span>B2B SaaS</button>
+    <button class="chip" data-f="agency"><span class="dot" style="background:var(--agency)"></span>Агентства</button>
+    <button class="chip" data-f="ru"><span class="dot" style="background:var(--ru)"></span>РФ</button>
+  </div>
+</div>
+
+<!-- CRYPTO -->
+<section id="crypto" class="wrap b-crypto reveal" data-band="crypto">
+  <div class="band-head"><span class="band-tag">EN · Полоса 1</span><h2>Crypto / Fintech B2B - 12 Tier A</h2></div>
+  <p class="band-sub">ICP: лицензированные (MiCA CASP / VARA / FCA) или funded, 20-200 человек, EU/UK/Dubai. Главный крючок: <b>license-to-demand gap</b> - лицензию купили, но AI-ответы ведут на Coinbase/Kraken (22% всех цитирований по 5W-индексу).</p>
+  <div class="grid">
+    <div class="tcard"><div class="top"><h3>Tangany</h3><span class="status">BaFin · €10M A</span></div><div class="meta">Регулируемая крипто-кастоди (white-label) · Мюнхен</div><div class="angle"><b>Кого AI называет по "MiCA-licensed custody"? Не вас</b> - снапшот vs Zodia/Finoa/Boerse Stuttgart</div><div class="buyer"><strong>CMO / Head of Marketing</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Finoa</h3><span class="status">BaFin · $37M</span></div><div class="meta">Институциональная кастоди + стейкинг · Берлин</div><div class="angle"><b>Citation share vs Tangany и Zodia</b> на 10 запросах, что аллокатор задаёт LLM до RFP</div><div class="buyer"><strong>Head of Marketing / CMO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Kaiko</h3><span class="status">$87.9M · 143 чел</span></div><div class="meta">Крипто market data / API · Париж</div><div class="angle"><b>Стать источником, который LLM цитируют</b>, как Messari - реструктуризация research-контента под citation share</div><div class="buyer"><strong>CMO / VP Marketing</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Dfns</h3><span class="status">$16M A (ADQ)</span></div><div class="meta">Wallet-as-a-service (клиенты Fidelity, Stripe) · Париж</div><div class="angle"><b>Fireblocks сам написал ваше AI-сравнение</b> - "Fireblocks vs Dfns" их домена и есть источник ответа LLM</div><div class="buyer"><strong>Founder-CEO Clarisse Hagège</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Kiln</h3><span class="status">$39.7M</span></div><div class="meta">Институциональный стейкинг / onchain yield · Париж</div><div class="angle"><b>Bitwise купил Chorus One</b> - ответ "best institutional staking" переписывается этим кварталом</div><div class="buyer"><strong>CMO / Head of Marketing</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Fuze</h3><span class="status">VARA+CBUAE · $26.2M</span></div><div class="meta">Digital asset payments, MENA · Дубай</div><div class="angle"><b>Владеть "crypto payments UAE"</b> - региональный запрос, где лицензированный локал должен побеждать глобальные биржи</div><div class="buyer"><strong>CEO Mo Ali Yusuf / CMO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Ramp Network</h3><span class="status">MiCAR · дек 2025</span></div><div class="meta">Fiat↔crypto on/off-ramp · Дублин/Варшава</div><div class="angle"><b>18 месяцев на MiCAR-лицензию, а ChatGPT всё ещё говорит MoonPay</b> - citation gap + 90-дневный фикс</div><div class="buyer"><strong>CMO / Head of Growth</strong></div></div>
+    <div class="tcard"><div class="top"><h3>BCB Group</h3><span class="status">FCA API</span></div><div class="meta">Крипто-B2B платежи, $230B+ объём · Лондон</div><div class="angle"><b>Старая пресса о FCA-расследовании живёт в AI-ответах</b> - фикс source mix vs история про $230B</div><div class="buyer"><strong>CMO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Bit2Me</h3><span class="status">MiCA CNMV · €30M Tether</span></div><div class="meta">Испанская биржа + B2B · Мадрид</div><div class="angle"><b>Топ-2 биржи владеют 22% цитирований</b> - взять испанский и EU клин, где у вас лицензия, а у конкурентов невидимость</div><div class="buyer"><strong>CMO / VP Growth</strong></div></div>
+    <div class="tcard"><div class="top"><h3>CoinMENA</h3><span class="status">CBB + VARA</span></div><div class="meta">MENA regulated exchange/broker · Бахрейн/Дубай</div><div class="angle"><b>"Best regulated exchange UAE" отвечает гигантами</b> - dual-license клин для локального игрока</div><div class="buyer"><strong>CMO / Head of Marketing</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Flagright</h3><span class="status">$12.5M A · 40 чел</span></div><div class="meta">AI-native AML / transaction monitoring · remote</div><div class="angle"><b>Выиграть "AML software for crypto" на 40 сотрудниках</b> - контент-ассеты, которые LLM должны прочитать vs ComplyAdvantage</div><div class="buyer"><strong>Founder-CEO Baran Ozkan</strong></div></div>
+    <div class="tcard"><div class="top"><h3>BVNK</h3><span class="status">$50M B · $750M val</span></div><div class="meta">Enterprise stablecoin payments · Лондон</div><div class="angle"><b>Месячный citation-share трекер</b> vs новые фандрейзы (KAST, Velocity, Trace) в самой шумной категории 2026</div><div class="buyer"><strong>CMO / VP Marketing</strong></div></div>
+  </div>
+</section>
+
+<!-- SAAS -->
+<section id="saas" class="wrap b-saas reveal" data-band="saas">
+  <div class="band-head"><span class="band-tag">EN · Полоса 2</span><h2>B2B SaaS (fintech-adjacent) - 10 Tier A</h2></div>
+  <p class="band-sub">ICP: 10-100 человек, seed-Series B, ~$1-20M ARR. Наше преимущество - regulated-кредибилити, поэтому RegTech/payroll/compliance-SaaS в приоритете. Самый плотный сегмент - compliance-AI ($3B инвестиций за Q1 2026).</p>
+  <div class="grid">
+    <div class="tcard"><div class="top"><h3>Hadrius</h3><span class="status">$27M · июль 2026</span></div><div class="meta">SEC/FINRA compliance для финфирм · Нью-Йорк</div><div class="angle"><b>Раунд объявлен две недели назад - бюджет только что упал</b>. AI-answer share для "SEC compliance software for RIAs"</div><div class="buyer"><strong>Founder-CEO / first growth hire</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Duna</h3><span class="status">€30M A · фев 2026</span></div><div class="meta">Business identity / KYB ("Stripe for identity") · Амстердам</div><div class="angle"><b>Категорию KYB владеет Middesk в AI-ответах</b> - новый фрейминг "business identity network", который LLM ещё не повторяют</div><div class="buyer"><strong>Founder-CEO Duco van Lanschot</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Diligent AI</h3><span class="status">€2.1M seed · мар 2026</span></div><div class="meta">Автономные AI-агенты KYC/AML · Лондон/Берлин</div><div class="angle"><b>Коллизия имени с Diligent Corp (гигант governance)</b> - LLM активно путают их; острая, демонстрируемая проблема видимости</div><div class="buyer"><strong>Founder-CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Numeral</h3><span class="status">$35M B · сен 2025</span></div><div class="meta">Автоматизация sales tax для SaaS/e-com · SF</div><div class="angle"><b>Активная контент-война vs Anrok</b> - "Anrok обходит вас внутри ChatGPT даже там, где вы выигрываете в Google"</div><div class="buyer"><strong>VP Marketing / Head of Growth</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Truewind</h3><span class="status">$13M A · янв 2025</span></div><div class="meta">AI-бухгалтерия и month-end close · SF</div><div class="angle"><b>Comparison-война vs Basis</b> - что ChatGPT рекомендует CPA-фирме, показать gap vs $34M-контента Basis</div><div class="buyer"><strong>Founder-CEO / Head of Growth</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Zango AI</h3><span class="status">$4.8M seed · июл 2025</span></div><div class="meta">AI-агенты финрегуляторного комплаенса (Monzo, Juni) · Лондон</div><div class="angle"><b>Вышли из stealth = почти нулевой AI-футпринт</b>, пока комплаенс-офицеры банков ресерчат через LLM</div><div class="buyer"><strong>Founder-CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Central</h3><span class="status">$8.6M seed · авг 2025</span></div><div class="meta">Автономный back-office (payroll/HR) для стартапов · US</div><div class="angle"><b>Incumbent-owned answer box</b> - "payroll for a 10-person startup" отвечает Gusto/Rippling, Central невидим</div><div class="buyer"><strong>Founder-CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Pace</h3><span class="status">$10M A · Sequoia</span></div><div class="meta">Agentic AI для страховых операций · US</div><div class="angle"><b>Категория "AI for insurance ops" формируется сейчас</b> - answer-share это land-grab; regulated-кредибилити это клин</div><div class="buyer"><strong>Founder-CEO / VP GTM</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Stacks</h3><span class="status">$7M · General Catalyst</span></div><div class="meta">AI-агенты для accounting close · Европа</div><div class="angle"><b>CFO-stack land grab</b> (€66.5M рекорд EU) - молодой бренд конкурирует за те же ответы, что Numeric/Trullion</div><div class="buyer"><strong>Founder-CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Antidote</h3><span class="status">$5M seed</span></div><div class="meta">AI billing-compliance для юрфирм · UK</div><div class="angle"><b>Можете занять 100% AI-ответа для "OCG compliance software" за квартал</b> - новая категория без incumbent-ответа</div><div class="buyer"><strong>Founder-CEO</strong></div></div>
+  </div>
+</section>
+
+<!-- AGENCY -->
+<section id="agency" class="wrap b-agency reveal" data-band="agency">
+  <div class="band-head"><span class="band-tag">EN · Полоса 3</span><h2>Агентства для white-label - 10 Tier A</h2></div>
+  <p class="band-sub">Продаём AI-delivery под их брендом (отчётность, контент-пайплайны, AEO-аудиты), 15-30% rev-share. Один партнёр = поток из десятков клиентов. Самые тёплые - те, кто уже вписал "AI Search Optimization" в меню, но без движка.</p>
+  <div class="grid">
+    <div class="tcard"><div class="top"><h3>Caliber Corporate Advisers</h3><span class="status">44 чел · $7.9M</span></div><div class="meta">Fintech/insurtech/proptech PR - ноль AI на сайте</div><div class="angle"><b>Отчётность + AEO под брендом Caliber</b> - "ваши fintech-клиенты уже спрашивают, кто в ответах ChatGPT"</div><div class="buyer"><strong>Grace Keith Rodriguez, CEO</strong> (+ Chief Innovation Officer)</div></div>
+    <div class="tcard"><div class="top"><h3>Growth Gorilla</h3><span class="status">fintech-first</span></div><div class="meta">Paid media, 40+ финтехов - ноль AI</div><div class="angle"><b>Отчётность white-label</b> - "клиенты хотят Monday dashboard, ваша команда перестаёт жечь 5-10 ч/клиент/мес"</div><div class="buyer"><strong>Shameer Sachdev, founder & MD</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Lunar Strategy</h3><span class="status">30+ чел</span></div><div class="meta">Web3 GTM full-service, 250+ проектов - ноль AI</div><div class="angle"><b>Отчётность + AEO</b> - "конкуренты (ICODA, Coinpresso) уже продают AI-SEO; арендуйте способность вместо найма"</div><div class="buyer"><strong>Tim Haldorsson, CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Melrose PR</h3><span class="status">&lt;20 чел</span></div><div class="meta">Bitcoin/crypto PR - продают "AI Visibility" без движка</div><div class="angle"><b>Дать зубы их AI Visibility</b> - измеримые citation-share аудиты под брендом Melrose</div><div class="buyer"><strong>Kelley Weaver, founder & CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>CSTMR</h3><span class="status">Остин · с 2014</span></div><div class="meta">Fintech full-service - "Discovery Optimization" без глубины</div><div class="angle"><b>"Discovery Optimization в меню - мы кухня"</b>, rev-share, без найма fintech-AI инженеров</div><div class="buyer"><strong>Rory Holland, founder & CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>YAP Global</h3><span class="status">4 хаба</span></div><div class="meta">Crypto/fintech PR (NY/London/SG/Dubai) - блог про GEO, услуги нет</div><div class="angle"><b>"Вы опубликовали 'Why GEO Matters' - мы delivery-arm"</b>, превращающий пост в billable-продукт YAP</div><div class="buyer"><strong>Samantha Yap, founder & CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>FINPR</h3><span class="status">10+ чел · 600+ клиентов</span></div><div class="meta">Crypto PR (230+ СМИ, 15 языков) · Дубай - нет AI внутри</div><div class="angle"><b>Мультиязычный контент-пайплайн</b> - "600 клиентов, 15 языков: локализованный PR на объёме = чистая маржа"</div><div class="buyer"><strong>Kirill Bezverhi, founder & CEO</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Contentworks</h3><span class="status">Кипр · 10 лет</span></div><div class="meta">Content/PR/PPC для forex, fintech, prop trading</div><div class="angle"><b>Compliance-checked контент в 3x объёме без найма</b> - ваши писатели аппрувят, наш пайплайн драфтит</div><div class="buyer"><strong>Charlotte Day / Niki Nikolaou</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Omni Agency</h3><span class="status">15+ чел</span></div><div class="meta">Crypto community/paid, Web3/DeFi/gaming - "get cited by AI" без тулинга</div><div class="angle"><b>Сделать "get cited by AI" аудируемым и повторяемым</b>, чтобы обещание масштабировалось за 15 человек</div><div class="buyer"><strong>Tyler Mullins, founder</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Cryptorsy</h3><span class="status">~15 чел</span></div><div class="meta">Web3 PR + KOL-сеть (200+), community - нет AI</div><div class="angle"><b>Отчётность KOL-кампаний</b> - "репортинг по 200 инфлюенсерам это ваш худший time-sink, автоматизируем под брендом"</div><div class="buyer"><strong>Vlad (CEO), Gleb</strong></div></div>
+  </div>
+</section>
+
+<!-- RU -->
+<section id="ru" class="wrap b-ru reveal" data-band="ru">
+  <div class="band-head"><span class="band-tag">РФ · Полоса 4</span><h2>Россия - топ-10 Tier A</h2></div>
+  <p class="band-sub">Три корзины: e-com/B2B бренды 100M-2B ₽, digital-агентства без AI-практики для white-label, финтех-смежный частный бизнес. Фон боли: НДС в Директе 22% с 2026, CPC удвоился с 2022. Корзина агентств - самая быстрая к деньгам, окно закрывается (6 из 12 уже продают GEO).</p>
+  <div class="grid">
+    <div class="tcard"><div class="top"><h3>MediaGuru</h3><span class="status">топ-4 performance</span></div><div class="meta">Агентство: контекст/SEO/SMM/маркетплейсы - ноль AI</div><div class="angle"><b>White-label AEO, rev-share</b> - "соседи по рейтингу (i-Media) уже продают GEO; AI-практика под ваш бренд за 30 дней"</div><div class="buyer"><strong>Управляющий партнёр</strong></div></div>
+    <div class="tcard"><div class="top"><h3>ПроКонтекст</h3><span class="status">№1 performance</span></div><div class="meta">Агентство: автоматизация контекста, консалтинг - нет AI-линейки</div><div class="angle"><b>White-label AI-отчётность</b> - "вы №1 в автоматизации контекста, добавим AEO как продукт без найма"</div><div class="buyer"><strong>Гендиректор / директор по продуктам</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Intelsib</h3><span class="status">топ-6 SEO · 56 тулов</span></div><div class="meta">Агентство SEO+контекст (Новосибирск) - инженерное ДНК, ноль AI</div><div class="angle"><b>White-label AEO-аудиты под вашим брендом</b> - "56 своих инструментов и ноль AI-услуг, закроем гэп"</div><div class="buyer"><strong>Основатель / коммерческий директор</strong></div></div>
+    <div class="tcard"><div class="top"><h3>TRINET.Group</h3><span class="status">топ-7 SEO · от 110K/мес</span></div><div class="meta">Агентство: отраслевое продвижение (клиники, стройка) · СПб</div><div class="angle"><b>AEO-модуль к отраслевым пакетам</b>, rev-share - клиники и стройка это наши же вертикали</div><div class="buyer"><strong>Управляющий партнёр</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Клиника Фомина</h3><span class="status">6.97 млрд ₽ · +62%</span></div><div class="meta">Сеть 25 медцентров, IPO-2027 · доказанный покупатель аналитики</div><div class="angle"><b>Пилот 100-200K: AI-разбор 100% обращений</b> - "вы уже нашли 11 млн в звонках, следующий слой: сквозная отчётность по 25 клиникам"</div><div class="buyer"><strong>Директор по маркетингу сети</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Вебиум</h3><span class="status">сегмент +50%</span></div><div class="meta">Онлайн-школа ЕГЭ/ОГЭ, 12 направлений</div><div class="angle"><b>Контент-пайплайн + AEO</b> - "родители уже спрашивают у нейросетей, какая онлайн-школа лучше"; контент-фабрика делается руками</div><div class="buyer"><strong>CMO / руководитель маркетинга</strong></div></div>
+    <div class="tcard"><div class="top"><h3>ПланФакт</h3><span class="status">финтех-SaaS</span></div><div class="meta">SaaS управленческого учёта для МСБ</div><div class="angle"><b>AEO-аудит 60-90K</b> - "ваш блог против Финтабло: контент-война, где нейросети рекомендуют конкурента"</div><div class="buyer"><strong>CMO / Head of Growth</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Нескучные финансы</h3><span class="status">500+ клиентов · 280 финдиров</span></div><div class="meta">Аутсорс финдиректоров, контент-машина "Газета"</div><div class="angle"><b>Контент-пайплайн пилот</b> - "ваша газета это главный актив: AI-пайплайн удваивает выпуск без найма редакторов"</div><div class="buyer"><strong>Основатель / директор по маркетингу</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Art&Fact</h3><span class="status">1.2 млрд ₽ · +52%</span></div><div class="meta">DTC-косметика, WB/Ozon + экспорт ЮВА</div><div class="angle"><b>Аудит 25-50K → ведение</b> - "контент-пайплайн для карточек и соцсетей: тот же объём в 3 раза дешевле без потери tone of voice"</div><div class="buyer"><strong>Директор по маркетингу / e-com</strong></div></div>
+    <div class="tcard"><div class="top"><h3>Консоль.Про</h3><span class="status">от 10K ₽/мес</span></div><div class="meta">Платформа выплат самозанятым, финтех</div><div class="angle"><b>AEO-аудит представленности</b> - "обзоры 'топ-10 сервисов выплат' уже цитируются нейросетями"</div><div class="buyer"><strong>Head of Growth / CMO</strong></div></div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="wrap reveal">
+  <div class="band-head"><h2>Кросс-полосные выводы</h2></div>
+  <div class="callout"><p><strong>Главный крючок EN:</strong> license-to-demand gap. 294 MiCA CASP и ~50 VARA-лицензиатов потратили годы и миллионы на лицензии, а AI-ответы ведут на Coinbase/Kraken (22% цитирований). "Вы купили лицензию - ChatGPT о вас не знает" бьёт в CMO и CEO одновременно, переворачивая комплаенс-кост в немонетизированный маркетинг-актив.</p></div>
+  <div class="ins">
+    <div class="item"><div class="n">01</div><h4>Войны сравнений = быстрейшие сделки</h4><p>Numeral vs Anrok, Truewind vs Basis, ПланФакт vs Финтабло - где обе стороны уже пишут "X alternatives", маркетолог мгновенно понимает "та же война, новое поле боя (ChatGPT)". Обучать покупателя не надо.</p></div>
+    <div class="item"><div class="n">02</div><h4>Готовые cold-open артефакты</h4><p>Коллизия имени Diligent AI, Fireblocks-авторство сравнения Dfns, FCA-пресса BCB - каждый случай это скриншот, продающий сам. Паттерн "конкурент/пресса владеет вашим AI-ответом" повторяем и проверяем за минуты.</p></div>
+    <div class="item"><div class="n">03</div><h4>Свежие раунды &gt; большие раунды</h4><p>Hadrius, Diligent AI, Duna - growth-мандат есть, агентства ($8-25K/мес) ещё не наняты, слот $1.5-6K не оспаривается. Целить в ≤90 дней после раунда.</p></div>
+    <div class="item"><div class="n">04</div><h4>Кластерный аутрич</h4><p>Париж (Kaiko, Dfns, Kiln, Swan) и Дубай (Fuze, CoinMENA, LTP + FINPR) - плотные комьюнити, где один кейс каскадирует. VARA-когорта из ~50 лицензиатов идеальна для сарафана.</p></div>
+    <div class="item"><div class="n">05</div><h4>RU: агентства - быстрейшая корзина, окно закрывается</h4><p>6 из 12 проверенных RU-агентств уже продают GEO/AEO. Аргумент отстающим: "соседи по рейтингу уже в прайсе с AI". Через 6-12 месяцев отстающих не останется.</p></div>
+    <div class="item"><div class="n">06</div><h4>Отчётность - универсальный white-label клин</h4><p>Ни одно из 25 проверенных EN-агентств не продуктизирует клиентский репортинг; у RU-агентств тот же паттерн. Экономия 5-10 ч/клиент/мес - чистая математика для фаундера.</p></div>
+  </div>
+</section>
+
+<!-- WAVES -->
+<section id="waves" class="wrap reveal">
+  <div class="band-head"><h2>Последовательность аутрича</h2></div>
+  <p class="band-sub">Каждому Tier A перед DM - T0-snapshot (его AI-видимость на 5-10 buyer-запросах); список запросов уже в углах захода каждой карточки.</p>
+  <div class="waves">
+    <div class="w-item"><div class="w-when">Волна 1 · недели 1-2</div><p><b>Тёплый нетворк по crypto Tier A</b> (кластеры Дубай + Париж) + 3-4 RU-агентства (MediaGuru, ПроКонтекст, Intelsib) - у агентств цикл недели, не месяцы.</p></div>
+    <div class="w-item"><div class="w-when">Волна 2 · недели 2-4</div><p><b>SaaS Tier A со свежими раундами</b> (Hadrius, Duna, Diligent AI - у Diligent готовый скриншот-крючок) + EN-агентства, продающие обещание без движка (Melrose, CSTMR, YAP Global).</p></div>
+    <div class="w-item"><div class="w-when">Волна 3 · недели 4-6</div><p><b>RU-бренды</b> (Фомина, Вебиум, ПланФакт) на кейсах из волн 1-2; добор crypto Tier B.</p></div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>103 организации в 4 листах (<span class="mono">research/targets-*.md</span>): EN crypto/fintech 32, EN SaaS 24, EN-агентства 19 (+6 исключённых конкурентов), РФ 28. Анти-галлюцинационный протокол: каждая компания подтверждена ≥1 URL из сессии ресерча, непроверенные атрибуты помечены. Имена покупателей проверены там, где указаны явно. Полная сводка с источниками: <span class="mono">TARGETS.md</span>. Стратегия и план: <span class="mono">presentation.html</span>.</p>
+</footer>
+
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+},{passive:true});
+
+// filter
+const chips=[...document.querySelectorAll('.chip')];
+const bands=[...document.querySelectorAll('section[data-band]')];
+chips.forEach(ch=>ch.addEventListener('click',()=>{
+  chips.forEach(c=>c.classList.remove('active'));
+  ch.classList.add('active');
+  const f=ch.dataset.f;
+  bands.forEach(b=>b.classList.toggle('hidden', f!=='all' && b.dataset.band!==f));
+}));
+
+// nav active state
+const links=[...document.querySelectorAll('nav a[href^="#"]')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const navObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}});
+},{rootMargin:'-25% 0px -65% 0px'});
+secs.forEach(s=>s&&navObs.observe(s));
+
+// reveal
+const rev=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rev.unobserve(e.target)}});
+},{threshold:.05});
+document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
+</script>
+</body>
+</html>

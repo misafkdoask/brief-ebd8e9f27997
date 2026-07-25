@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>AI Marketing Venture · Ресерч и план · Mikhail + Anna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf7f2; --bg-soft:#f3efe7; --ink:#1c1a17; --ink-soft:#5b564e; --ink-faint:#8a847a;
+  --accent:#1f5f8b; --accent-soft:#e8eff4; --line:#e2dcd1; --line-strong:#cfc7b8;
+  --good:#2e6b4f; --bad:#9c3d2e; --card:#fffdf9;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Golos Text',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+.mono{font-family:'JetBrains Mono',monospace}
+::selection{background:var(--accent);color:#fff}
+
+/* progress bar */
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:60;transition:width .1s linear}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-brand{font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--ink)}
+.nav-brand span{color:var(--accent)}
+nav a{color:var(--ink-soft);text-decoration:none;font-size:13px;font-weight:500;white-space:nowrap;padding:4px 2px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--ink)}
+nav a.active{color:var(--accent);border-color:var(--accent)}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* hero */
+header{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:end}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+h1{font-size:clamp(30px,4.6vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.06}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{margin-top:22px;font-size:17px;color:var(--ink-soft);max-width:56ch}
+.verdict{background:var(--ink);color:var(--bg);border-radius:20px;padding:28px}
+.verdict .mono{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b8b2a6}
+.verdict strong{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;margin:8px 0 10px;color:#fff}
+.verdict p{font-size:13.5px;color:#d8d2c6;line-height:1.55}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:48px}
+.stat{background:var(--card);padding:20px 22px}
+.stat b{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:600;color:var(--ink);display:block;letter-spacing:-.02em}
+.stat span{font-size:12.5px;color:var(--ink-faint);line-height:1.4;display:block;margin-top:4px}
+
+/* sections */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:64px 1fr;gap:24px;margin-bottom:32px;align-items:baseline}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-faint)}
+h2{font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.sec-body{margin-left:88px}
+h3{font-size:17px;font-weight:600;margin:28px 0 10px;letter-spacing:-.01em}
+p{color:var(--ink-soft);max-width:72ch;margin-bottom:14px}
+p strong,li strong{color:var(--ink)}
+ul,ol{margin:0 0 16px 20px;color:var(--ink-soft)}
+li{margin-bottom:8px;max-width:70ch}
+.callout{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0;max-width:78ch}
+.callout p{margin:0;color:var(--ink);font-size:15px}
+.warn{background:#f7ece8;border-left-color:var(--bad)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+table{display:block;overflow-x:auto}
+thead th{background:var(--bg-soft);text-align:left;padding:12px 16px;font-weight:600;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line-strong);white-space:nowrap}
+td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft);min-width:120px}
+tr:last-child td{border-bottom:none}
+td:first-child{color:var(--ink);font-weight:500}
+.num{font-family:'JetBrains Mono',monospace;font-size:13px;white-space:nowrap;color:var(--ink)}
+
+/* two-col compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
+.compare>div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.compare h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;font-family:'JetBrains Mono',monospace}
+.compare .no h4{color:var(--bad)} .compare .yes h4{color:var(--good)}
+.compare ul{margin-left:18px}
+.compare li{font-size:14px;margin-bottom:7px}
+
+/* phases */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:24px 0}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative}
+.phase:first-child{border-color:var(--accent);box-shadow:0 12px 30px -18px rgba(31,95,139,.35)}
+.phase .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.phase h4{font-size:16px;font-weight:600;margin:8px 0 10px}
+.phase ul{margin-left:16px}
+.phase li{font-size:13.5px;margin-bottom:6px}
+
+/* timeline */
+.timeline{border-left:2px solid var(--line-strong);margin:28px 0 8px 6px;padding-left:0}
+.t-item{position:relative;padding:0 0 26px 30px}
+.t-item::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.t-item.gate::before{background:var(--bad);border-color:var(--bad)}
+.t-when{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.t-item.gate .t-when{color:var(--bad)}
+.t-item h4{font-size:15.5px;font-weight:600;margin-bottom:4px}
+.t-item p{font-size:14px;margin:0;max-width:64ch}
+
+/* kill */
+.kill{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.kill>div{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card)}
+.kill .k-day{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--bad);letter-spacing:.08em;text-transform:uppercase}
+.kill p{font-size:14px;margin:6px 0 0}
+
+/* questions */
+.qs{counter-reset:q;margin:20px 0}
+.q{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;border-bottom:1px dashed var(--line-strong)}
+.q:last-child{border-bottom:none}
+.q::before{counter-increment:q;content:counter(q,decimal-leading-zero);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);padding-top:2px}
+.q h4{font-size:15.5px;font-weight:600;margin-bottom:3px}
+.q p{font-size:14px;margin:0;max-width:66ch}
+
+footer{padding:48px 0 72px}
+footer p{font-size:13px;color:var(--ink-faint)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .hero-grid,.compare,.phases,.kill,.foot-grid{grid-template-columns:1fr}
+  .statrow{grid-template-columns:1fr 1fr}
+  .sec-head{grid-template-columns:1fr;gap:6px}
+  .sec-body{margin-left:0}
+  header{padding:48px 0 40px}
+  section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">AI&nbsp;MKT&nbsp;<span>VENTURE</span></div>
+    <a href="#verdict">Вердикт</a>
+    <a href="#market">Рынки</a>
+    <a href="#icp">ICP</a>
+    <a href="#services">Услуги</a>
+    <a href="#pricing">Цены</a>
+    <a href="#gtm">GTM</a>
+    <a href="#enterprise">Enterprise</a>
+    <a href="#ops">Операционка</a>
+    <a href="#plan90">90 дней</a>
+    <a href="#economics">Экономика</a>
+    <a href="#questions">Вопросы</a>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="kicker">Ресерч 18 отчётов · 30+ агентов · июль 2026</div>
+      <h1>AI-трансформация маркетинга как сервисный бизнес: <em>что показал ресерч</em> и с чего начинаем</h1>
+      <p class="hero-sub">Сводка для обсуждения: Mikhail + Anna. Рынки Global и РФ/СНГ, полный каталог услуг, юридика, playbook первых клиентов, план 90 дней. Каждая цифра ниже - из сорсированного отчёта, база в папке research.</p>
+    </div>
+    <div class="verdict">
+      <div class="mono">Вердикт red-team (3 линзы)</div>
+      <strong>GO, с изменениями</strong>
+      <p>Идея валидна, рынок платит. Но не платформа, а услуги; не широкое меню, а 2 системы; не ретейнеры сразу, а аудит → спринт. Продукт - позже, из шаблонов.</p>
+    </div>
+  </div>
+  <div class="statrow">
+    <div class="stat"><b>88% / 6%</b><span>компаний внедряют AI / извлекают ценность - этот разрыв и есть рынок услуг</span></div>
+    <div class="stat"><b>$59 ↔ $100K</b><span>мёртвая зона цен: между тулами и платформами никто не ставит систему за $1-5K/мес</span></div>
+    <div class="stat"><b>3-5×</b><span>EN-рынок платит больше РФ за идентичную работу</span></div>
+    <div class="stat"><b>90 дней</b><span>окно валидации: 1 EN-клиент или 2 RU-пилота, иначе kill</span></div>
+  </div>
+</header>
+
+<section id="verdict" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">01</div><h2>Вердикт: почему услуги, а не платформа</h2></div>
+  <div class="sec-body">
+    <div class="compare">
+      <div class="no">
+        <h4>Флоу А: своя платформа - закрыт</h4>
+        <ul>
+          <li><strong>Jasper</strong>: валюация срезана до ~$1.2B, 4+ раунда увольнений, выжил только уходом в enterprise-governance</li>
+          <li><strong>Copy.ai</strong>: пивот провалился, продан Fullcast (окт 2025), Trustpilot 1.9/5</li>
+          <li><strong>Icon.com</strong>: рухнул к марту 2026 несмотря на Founders Fund и домен за $12M</li>
+          <li>Wrapper-экономика против ChatGPT - подтверждённая ловушка</li>
+        </ul>
+      </div>
+      <div class="yes">
+        <h4>Флоу Б: услуги на стороне клиента - это и есть рынок</h4>
+        <ul>
+          <li>Gartner CMO Spend 2026: 74% не могут масштабировать ценность AI</li>
+          <li>Salesforce Agentforce: &lt;10% attach на 150K+ клиентов - даже гиганты не деплоят агентов self-serve</li>
+          <li>AI consulting: $9.65B → $11.9B за год (+25.6%)</li>
+          <li>Solo/duo-прецеденты: n8n-фрилансер $8.2K/мес за 7 мес; Arcads $15M ARR командой из 8</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><p><strong>Продукт не отменяется - откладывается.</strong> Каждый контракт включает license-back на шаблоны. При трёх триггерах (3+ повторных delivery одной системы, шаблоны покрывают ~70% работы, $10K+ MRR) шаблонная библиотека становится вертикальным продуктом. Никогда - "Jasper для X".</p></div>
+    <h3>Что red-team заставил поменять</h3>
+    <ul>
+      <li><strong>Платёжный вопрос решается до любого EN-аутрича</strong> - RU-нексус блокирует vendor onboarding у лицензированных клиентов.</li>
+      <li><strong>Генералистское меню убито</strong>: "AI automation" продают 305K+ выпускников одного Skool-комьюнити. Продаём 2 именованные системы с KPI.</li>
+      <li><strong>Первые 90 дней - только async fixed-scope</strong>: аудиты и спринты с жёстким концом. Ретейнеры - после capacity-триггера.</li>
+      <li><strong>Партнёрское соглашение с триггером "Михаил принял фултайм-оффер"</strong> - неделя 0, блокирующая.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="market" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">02</div><h2>Рынки: две полосы и гейт на день 45</h2></div>
+  <div class="sec-body">
+    <table>
+      <thead><tr><th></th><th>EN (стратегическая полоса)</th><th>РФ/СНГ (cash-flow, кап 30-40% ёмкости)</th></tr></thead>
+      <tbody>
+        <tr><td>Чеки</td><td><span class="num">$3-15K/мес</span> GEO-ретейнеры; аудиты <span class="num">$1.5-5K</span></td><td><span class="num">60-150K ₽/мес</span>; пилоты <span class="num">100-200K ₽</span> закрываются за недели</td></tr>
+        <tr><td>Условие входа</td><td>Только после решения платёжного вопроса (юрлицо/платформа)</td><td>Работает сегодня: самозанятость + Kwork-инфраструктура уже live</td></tr>
+        <tr><td>Категория</td><td>AEO/GEO-агентства растут, слот implementation под стратегами свободен</td><td>"Продвижение в нейросетях" сформировано: ~15 агентств, медиана ~150K ₽/мес</td></tr>
+        <tr><td>Ограничения</td><td>Комплаенс = наш моат (MiCA, верификация Meta в 38 странах)</td><td>Крипто-реклама запрещена; 152-ФЗ: PII не в западные API; erid обязателен</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn"><p><strong>Гейт дня 45:</strong> ноль платных EN-аудитов → вся ёмкость переключается на RU-пилоты, EN-полоса замораживается до юр-фикса. Это kill полосы, не венчура.</p></div>
+  </div>
+</section>
+
+<section id="icp" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">03</div><h2>Кому продаём</h2></div>
+  <div class="sec-body">
+    <table>
+      <thead><tr><th>Сегмент</th><th>Кто и какая боль</th><th>Чек и канал</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>ICP #1 · Crypto/Fintech B2B <span class="num">EN</span></td>
+          <td>Биржи, кошельки, инфраструктура, fintech SaaS (20-200 чел, seed-Series B). Paid-каналы задушены регуляторикой; Coinbase+Kraken забирают ~22% US crypto AI-цитирований - все ниже топ-5 невидимы. Фильтр: только licensed/funded.</td>
+          <td>Уже платят агентствам <span class="num">$3-6K/мес</span>. Тёплый нетворк EMCD/Choise, Telegram, LinkedIn</td>
+        </tr>
+        <tr>
+          <td>ICP #2 · B2B SaaS <span class="num">EN</span></td>
+          <td>10-100 сотрудников, $1-20M ARR. Байеры ресерчат вендоров через ChatGPT/Perplexity до первого касания; агентства категории $8-25K/мес недоступны. Цикл 2-3 мес → аутрич с недели 1.</td>
+          <td><span class="num">$2.5-5K/мес</span> - ровно мёртвая зона. LinkedIn build-in-public, 2nd-degree интро</td>
+        </tr>
+        <tr>
+          <td>RU-лейн</td>
+          <td>E-commerce/D2C и B2B-сервисы 100M-2B ₽ выручки. Конвертятся на кейсах с ROI-цифрами, не на демо.</td>
+          <td>Kwork-гиги <span class="num">80-300K ₽</span>, VC.ru кейс, Telegram</td>
+        </tr>
+        <tr>
+          <td>Агентства (оба рынка)</td>
+          <td>Маркетинговые агентства без AI-компетенции знают про свой gap (60-80% экономии на контенте). Один дил = recurring объём нескольких клиентов.</td>
+          <td>White-label, <span class="num">15-30%</span> rev-share</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="services" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">04</div><h2>Каталог услуг: карта, а не меню</h2></div>
+  <div class="sec-body">
+    <p>Ресерч покрыл все линии маркетинга - от брендинга до enterprise-воркшопов. <strong>Клиенту в первые 90 дней продаются только 2 клина.</strong> Остальное - внутренняя карта расширения: на вопрос "а можете X?" отвечаем "да, после пилота, в роадмапе" или честное "нет".</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="tag">Фаза 1 · дни 1-90</div>
+        <h4>Два клина</h4>
+        <ul>
+          <li><strong>AEO/GEO Audit → Sprint</strong>: KPI = citation share; горячая категория, готовая боль крипто-ниши</li>
+          <li><strong>Analytics Audit → AI-Reporting</strong>: маржа 85-95%, самая низкая планка доверия, каждая находка = апсейл, кормит кейсы цифрами</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="tag">Фаза 2 · месяцы 3-6</div>
+        <h4>Расширение</h4>
+        <ul>
+          <li>Content Engine (cost per asset)</li>
+          <li>Positioning &amp; Brand Sprint <span class="num">$5-8K / 250-400K ₽</span> - ниша между Kwork и Depot пуста</li>
+          <li>Продуктизированные ads-офферы: аудит, tracking-setup, creative pipeline, launch sprint</li>
+          <li>AI Enablement воркшопы <span class="num">$2-5K/день</span></li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="tag">Фаза 3 · при ёмкости</div>
+        <h4>Потолок</h4>
+        <ul>
+          <li>Outbound Engine / GTM eng <span class="num">$4-8K + $2-5K/мес</span></li>
+          <li>Lifecycle fintech (KYC/deposit journeys)</li>
+          <li>Intel-подписки - build once, sell N</li>
+          <li>Compliance-QA (FCA/MiCA) - самый уникальный моат</li>
+          <li>Creative Packs как recurring</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout warn"><p><strong>Отказываем открыто:</strong> full always-on ведение рекламы (несовместимо с side-project и умирает под платформенной автоматизацией), generic influencer/event management, % от спенда, unlimited-скоупы, бесплатные пилоты, крипто-реклама в РФ.</p></div>
+  </div>
+</section>
+
+<section id="pricing" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">05</div><h2>Лестница офферов и цены</h2></div>
+  <div class="sec-body">
+    <table>
+      <thead><tr><th>Ступень</th><th>Global</th><th>РФ</th><th>Что внутри</th></tr></thead>
+      <tbody>
+        <tr><td>T0 · Visibility Snapshot</td><td class="num">free</td><td class="num">free</td><td>1-страничный teardown бренда в ChatGPT/Perplexity/AI Overviews + 3 фикса. Кап 1-2 часа, дверь в DM</td></tr>
+        <tr><td>T1 · Paid Audit</td><td class="num">$1,500-2,500</td><td class="num">60-90K ₽</td><td>Citation share vs конкуренты или tracking-health; приоритизированный 90-дневный roadmap; 5-10 раб. дней</td></tr>
+        <tr><td>T2 · Pilot Sprint (2-4 нед)</td><td class="num">$3,500-6,000</td><td class="num">100-200K ₽</td><td>Одна именованная система под ключ на инфре клиента + runbook + baseline. 50% аудита зачитывается</td></tr>
+        <tr><td>T3 · Retainer (после capacity-триггера)</td><td class="num">$2,500-5,000/мес</td><td class="num">80-150K ₽/мес</td><td>Оптимизация + мониторинг + monthly report vs KPI</td></tr>
+      </tbody>
+    </table>
+    <h3>Контрактные правила</h3>
+    <ul>
+      <li>Flat fee, outcome-framed, но не outcome-priced; KPI в каждом SOW; 2 раунда правок; max 1 спринт одновременно.</li>
+      <li>API-косты - pass-through на ключах клиента: token-косты вне нашего P&amp;L.</li>
+      <li><strong>Anti-lock-in как продающая фича:</strong> клиент владеет всем задеплоенным. Ретейнер держится на ценности (мониторинг, реакция на изменения платформ, роадмап), не на заложничестве. Мы оставляем background IP и шаблоны через license-back.</li>
+    </ul>
+    <div class="callout"><p><strong>Экономика 90 дней с overhead:</strong> 2-3 аудита + 1 спринт ≈ <span class="num">$6.5-9K</span> за ~60-80 delivery-часов. Общий бюджет пары ≈ 260-390 ч: delivery ~25-30%, остальное - продажи, каналы, шаблоны. Это норма первого квартала: сначала воронка, потом маржа. Циклы для нового вендора: 45-60 дней.</p></div>
+  </div>
+</section>
+
+<section id="gtm" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">06</div><h2>Позиционирование и GTM на $0</h2></div>
+  <div class="sec-body">
+    <div class="callout"><p><strong>Формула:</strong> "Мы ставим и измеряем AI-маркетинг-систему на вашем стеке. Вы владеете всем. Flat fee. ROI по каждому workflow - или честно говорим, что AI тут не поможет."</p></div>
+    <h3>Почему мы, а не 1000 AI-агентств</h3>
+    <ul>
+      <li><strong>Мы сидели в вашем кресле</strong> - маркетинг внутри крипто-компании; generic-агентства производят compliance-небезопасный контент.</li>
+      <li><strong>Implementation, а не мониторинг</strong> - Profound/Peec говорят ГДЕ теряется видимость за $29-99/мес; мы исполняем fix-list. Позиция под стратегами и над тулами.</li>
+      <li><strong>Anti-hype фильтр</strong> - "убиваем AI-проекты, которые не должны существовать". Антидот к прогнозу Gartner: 40%+ agentic-проектов будут отменены к 2027.</li>
+      <li><strong>Anti-lock-in</strong> - всё работает без нас; клиент, который может уйти, но не уходит - лучший референс.</li>
+    </ul>
+    <p>Честно: слот $1-5K/мес не пуст в абсолюте (Upwork полон генералистов). Пуст он в связке "вертикаль + именованная система + KPI + комплаенс" - отстройка держится на всей связке.</p>
+    <h3>Каналы под наши активы (данные playbook)</h3>
+    <p class="mono" style="font-size:13px;color:var(--ink-faint)">CAC referral ≈ $150 vs cold email ≈ $1,980 · контент-inbound в разговор ~8× лучше холода · воронка: 60-80 касаний → 8-10 звонков → 1-2 клиента · аутрич фронт-лоадится в недели 1-4</p>
+    <ol>
+      <li><strong>Тёплый крипто/финтех нетворк</strong> (TG + LinkedIn DM): 25-50 имён, хук = бесплатный snapshot.</li>
+      <li><strong>Агентские партнёрства / white-label</strong>: 10-15 агентств EN+RU.</li>
+      <li><strong>LinkedIn build-in-public</strong> (машина у Михаила есть): 1 пост/нед - публичные AEO-teardown'ы известных брендов; DM вовлёкшимся.</li>
+      <li><strong>Комьюнити</strong>: Fintech Marketing Hub Slack, крипто-TG; RU: vc.ru/Habr.</li>
+      <li><strong>Kwork</strong>: отзывы + кэш, под отдельным профилем - не связывать с EN-брендом.</li>
+    </ol>
+    <div class="callout"><p><strong>Роли по каналам:</strong> Михаил фронтит crypto-трек (LinkedIn + TG) и Kwork; Анна - агентские партнёрства и B2B SaaS warm-intro. Discovery ведёт владелец канала, второй подключается на proposal. Первая транзакция всегда платная; бесплатна только диагностика.</p></div>
+  </div>
+</section>
+
+<section id="enterprise" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">07</div><h2>Enterprise-трек</h2></div>
+  <div class="sec-body">
+    <p>Спрос доказан: CMO крупных компаний тратят <strong>15.3% бюджета на AI, но только 30% готовы масштабировать</strong> (Gartner 2026); сдвиг от найма к внешним консультантам зафиксирован Duke CMO Survey. Скепсис из-за 95% провальных GenAI-пилотов - нам на руку: покупают малое и измеримое.</p>
+    <p><strong>Правило: sub-threshold.</strong> Каждый entry-оффер до ~$25K подписывает VP/CMO без procurement, RFP и security review. Deployment внутри enterprise-систем (SOC 2, циклы 6-12 мес) - только Phase 2.</p>
+    <table>
+      <thead><tr><th>Оффер</th><th>Global</th><th>РФ</th><th>Закрытие</th></tr></thead>
+      <tbody>
+        <tr><td>Executive AI briefing (2 ч)</td><td class="num">$2-4K</td><td class="num">150-250K ₽</td><td>1-2 звонка</td></tr>
+        <tr><td>1-day enablement workshop</td><td class="num">$7.5-12K</td><td class="num">350-600K ₽</td><td>2-4 нед</td></tr>
+        <tr><td>AI marketing audit + roadmap</td><td class="num">$8-20K</td><td class="num">500K-1.2M ₽</td><td>2-6 нед</td></tr>
+        <tr><td>Fractional AI marketing lead</td><td class="num">$6-12K/мес</td><td class="num">400-800K ₽/мес</td><td>4-8 нед, с аудита</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>Ниша:</strong> marketing×AI - недосервированное пересечение; Big 4 прайсят от $250K. Таргет: компании $100M-1B.</li>
+      <li><strong>РФ:</strong> рынок GenAI 58 млрд ₽ (рост 4x/год); вход сбоку - воркшопы, малые закупки до ~600K ₽ без конкурса, субподряд у 34 профильных ИИ-агентств (их слабость - маркетинговая экспертиза). Тендеры напрямую - нет.</li>
+      <li><strong>Первые 90 дней:</strong> строго opportunistic (warm-inbound), ноль часов на холодный enterprise. Целевые 20-30% воронки - после кейсов.</li>
+      <li><strong>Крипто-бэкграунд - два резюме:</strong> для частных/финтеха credential, для госсвязанных - EMCD как "финтех-инфраструктура".</li>
+    </ul>
+  </div>
+</section>
+
+<section id="ops" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">08</div><h2>Операционка: деньги, стек, комплаенс</h2></div>
+  <div class="sec-body">
+    <h3>Юридика и платежи (блокер #1, неделя 0)</h3>
+    <ul>
+      <li><strong>Phase 1 за $0 работает сегодня:</strong> самозанятость у обоих (6% с юрлиц, кэп 2.4M ₽/год каждому) + <strong>Mellow/EasyStaff</strong> для Global - клиент платит не-RF юрлицу платформы, мы получаем ₽. Полное трение ~11-14% (заложить в цены).</li>
+      <li>Stripe/PayPal/Wise/Payoneer/Deel закрыты RF-резидентам; фейк резидентства = потеря счёта. USDT - легальный трансграничный рейл (закон июля 2026), но не для EU-клиентов.</li>
+      <li>Phase 2: ИП УСН 6%; развилка - релокация одного фаундера (Армения ИП) или UAE ($2.5-6K) для Stripe и enterprise. Только ИП-форма (LLC = КИК). <strong>Ключевой вопрос - локация Анны:</strong> если она вне РФ, она фронтит юрлицо и весь EN-трек упрощается радикально.</li>
+    </ul>
+    <h3>Delivery-стек (~$15-75/мес фикс)</h3>
+    <p>n8n self-hosted на инфре клиента (он платит) + Claude Code/Agent SDK + ключи клиента (Global) / YandexGPT-GigaChat для PII + ProxyAPI (РФ). Деплой в аккаунтах клиента, lock-in = maintenance-ретейнер (<span class="num">$500-5K/мес</span> рыночная вилка). Шаблоны = маржа: build once, deploy many. DPA-шаблон + security one-pager проходят procurement без SOC 2.</p>
+    <h3>Комплаенс = продаваемые фичи</h3>
+    <ul>
+      <li>EU AI Act Article 50 - с 2 авг 2026: disclosure синтетики, чат-боты представляются.</li>
+      <li>РФ: erid автоматическим шагом каждого публикующего пайплайна (штрафы 100-500K ₽/креатив, ЕРИР матчит AI в реальном времени); 152-ФЗ - PII никогда в западные API.</li>
+      <li>Платформы автолейблят AI-контент (Meta/Google/TikTok) - disclosure-тогглы дефолтом в каждом ad-workflow.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="plan90" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">09</div><h2>План 90 дней</h2></div>
+  <div class="sec-body">
+    <div class="timeline">
+      <div class="t-item gate">
+        <div class="t-when">Неделя 0 · блокирующая</div>
+        <h4>Фундамент</h4>
+        <p>Партнёрское соглашение (часы, split, vesting, триггер "фултайм-оффер", buy-out для остающегося) · самозанятость + онбординг Mellow/EasyStaff · dry-run передачи delivery · бренд и домен (сайт сразу под AEO).</p>
+      </div>
+      <div class="t-item">
+        <div class="t-when">Недели 1-2</div>
+        <h4>Ассеты и списки</h4>
+        <p>Одностраничник 2 систем + sales-страница аудита · шаблон аудита (цель &lt;8 ч к третьему) · 15 crypto/fintech + 10 B2B SaaS таргетов · 2 Kwork-гига · первый публичный teardown в LinkedIn.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-when">Недели 3-4</div>
+        <h4>Аутрич-пик</h4>
+        <p>10-15 warm DM со snapshot'ами · 1 пост/нед · первый RU-лид с Kwork. <strong>Milestone: 1 платный аудит к концу недели 4.</strong></p>
+      </div>
+      <div class="t-item gate">
+        <div class="t-when">День 45 · гейт</div>
+        <h4>Проверка EN-полосы</h4>
+        <p>Ноль платных EN-аудитов → вся ёмкость на RU-пилоты, EN замораживается до юр-фикса.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-when">Недели 5-10</div>
+        <h4>Delivery и конверсия</h4>
+        <p>Аудиты #1-2 → конверсия в спринт (зачёт 50% аудита) → delivery спринта #1. Weekly ship в канал продолжается.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-when">Недели 11-13</div>
+        <h4>Кейс и решение</h4>
+        <p>Замер baseline→after · кейс с цифрами (LinkedIn EN или VC.ru) · ретейнер клиенту спринта только при capacity-триггере (один из нас 20+ ч/нед), иначе второй спринт.</p>
+      </div>
+      <div class="t-item">
+        <div class="t-when">День 90 · итог</div>
+        <h4>Критерий успеха</h4>
+        <p>1 EN-клиент (аудит + спринт, <span class="num">$5-8.5K</span>) или 2 RU-пилота (<span class="num">200-400K ₽</span>).</p>
+      </div>
+    </div>
+    <h3>Kill-criteria</h3>
+    <div class="kill">
+      <div><div class="k-day">День 45</div><p>0 платных EN-аудитов → kill EN-полосы, пивот RU-only.</p></div>
+      <div><div class="k-day">День 90</div><p>0 платных клиентов на обоих рынках при ≥30 warm DM и ≥8 proof-ассетах → гипотеза невалидна в этой конфигурации, stop.</p></div>
+      <div><div class="k-day">Качественные</div><p>3+ EN-сделки умерли на KYC из-за RU-нексуса · фултайм-триггер без Anna-ветки · конверсия snapshot→аудит &lt;5% на 30+ снапшотах.</p></div>
+      <div><div class="k-day">Anti-kill</div><p>Долгий SaaS-цикл - не kill-сигнал при 2+ сделках в стадии proposal к дню 90.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="economics" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">10</div><h2>Личная экономика: зачем это каждому</h2></div>
+  <div class="sec-body">
+    <p>Альтернативная стоимость честно: 130-195 ч на человека за квартал ≈ <span class="num">$13-39K</span> упущенного консалтингового дохода. Что покупается взамен:</p>
+    <ul>
+      <li><strong>Квартал 1 - инвестиционный:</strong> $5-8.5K выручки на пару + воронка + первый кейс + шаблоны. Прямой доход ниже фриланса - осознанно.</li>
+      <li><strong>Break-even лично:</strong> при 3-4 ретейнерах к месяцам 5-7 доля каждого превышает фриланс-ставку при меньших часах - шаблоны снижают delivery-час с каждым повтором. Потолок side-project ~$10-15K MRR на пару; фулл-тайм $30-60K MRR (вилка fractional-рынка).</li>
+      <li><strong>Downside protection:</strong> kill-criteria ограничивают проигрыш одним кварталом part-time часов; все артефакты остаются активами обоих и переносимы в карьеры.</li>
+      <li><strong>Чем лучше контракта на $10K/мес:</strong> контракт - линейный доход без накопления; здесь каждый delivery накапливает библиотеку → маржа растёт без роста часов → опцион на продукт.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="questions" class="wrap reveal">
+  <div class="sec-head"><div class="sec-num">11</div><h2>Вопросы на встречу</h2></div>
+  <div class="sec-body">
+    <div class="qs">
+      <div class="q"><div><h4>Локация и юрроль Анны</h4><p>Где налоговое резидентство? Готова фронтить контракты/юрлицо для EN? Это определяет судьбу всего EN-трека.</p></div></div>
+      <div class="q"><div><h4>Часы и роль</h4><p>Реальные 10-15 ч/нед? Sales/CS или delivery тоже? Dry-run handoff до первого клиента.</p></div></div>
+      <div class="q"><div><h4>Split и соглашение</h4><p>50/50? Vesting? Триггер фултайм-оффера Михаила (август). Buy-out/anti-dilution для остающегося - письменно в неделю 0.</p></div></div>
+      <div class="q"><div><h4>Стартовый клин</h4><p>Согласие на AEO + Analytics как wedge; брендинг/креатив/ads - фаза 2.</p></div></div>
+      <div class="q"><div><h4>Тёплый список</h4><p>Собрать вместе 25-50 имён из EMCD/крипто-нетворка - у кого какие двери.</p></div></div>
+      <div class="q"><div><h4>Бренд</h4><p>Имя/домен: 3-5 кандидатов на встречу. Без слов "AI automation agency".</p></div></div>
+      <div class="q"><div><h4>Proof-инвентарь</h4><p>3-5 квантифицированных кейсов из общей истории с реальными цифрами. Без них "мы сидели в вашем кресле" - обещание, а не доказательство.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="foot-grid">
+    <p>База: 18 research-отчётов (30+ агентов, июль 2026) - рыночные sweep'ы Global/РФ, ICP, packaging, red-team из 3 линз, сервисные линии (branding, analytics, ads, полная карта AI-в-маркетинге), playbook первых клиентов, юридика/платежи, delivery-стек и комплаенс, enterprise-сегмент. Полные тексты с источниками: <span class="mono">~/claude/ai-marketing-venture/research/</span>. Кросс-модельная проверка: DeepSeek-ревью применено к финальной версии.</p>
+    <p class="mono" style="text-align:right">PLAN.md · v1.0<br>22-23.07.2026</p>
+  </div>
+</footer>
+
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+},{passive:true});
+
+const links=[...document.querySelectorAll('nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(s=>s&&obs.observe(s));
+
+const rev=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rev.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
+</script>
+</body>
+</html>
