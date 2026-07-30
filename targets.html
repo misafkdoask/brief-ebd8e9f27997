@@ -108,6 +108,17 @@ footer p{font-size:13px;color:var(--ink-faint);max-width:80ch}
   header{padding:44px 0 32px}
   section{padding:40px 0}
 }
+
+.glossary{margin-top:26px;border:1px solid var(--line);border-radius:12px;background:var(--card);max-width:86ch}
+.glossary summary{cursor:pointer;padding:14px 20px;font-size:15px;font-weight:600;color:var(--accent);list-style:none}
+.glossary summary::-webkit-details-marker{display:none}
+.glossary summary::before{content:"+ ";font-weight:700}
+.glossary[open] summary::before{content:"− "}
+.glossary[open] summary{border-bottom:1px solid var(--line)}
+.gl-body{padding:18px 22px 20px}
+.gl-body p{font-size:14.5px;margin-bottom:12px;max-width:none}
+.gl-body ul{margin:0 0 12px 20px;font-size:14.5px}
+.gl-body li{margin-bottom:7px;max-width:none}
 </style>
 </head>
 <body>
@@ -129,7 +140,22 @@ footer p{font-size:13px;color:var(--ink-faint);max-width:80ch}
 <header class="wrap">
   <div class="kicker">Поимённая карта спроса · верификация URL по каждой компании · июль 2026</div>
   <h1>103 таргета: <em>кому именно</em> и с каким углом заходить</h1>
-  <p class="hero-sub">Четыре полосы, каждая компания подтверждена веб-источником в сессии ресерча; непроверенные атрибуты помечены. Ниже - Tier A по каждой полосе с сигналом статуса, покупателем и углом захода. Фильтр переключает полосы.</p>
+  <p class="hero-sub">Четыре полосы, каждая компания подтверждена веб-источником; непроверенные атрибуты помечены. По каждой компании: регуляторный статус и финансирование, чем занимается, угол захода и кто внутри принимает решение.</p>
+  <details class="glossary">
+    <summary>Как читать карточки: расшифровка обозначений</summary>
+    <div class="gl-body">
+      <p><strong>Первая строка справа — регуляторный статус и деньги.</strong> Лицензия показывает, что компания уже прошла дорогой и долгий комплаенс: это значит, у неё есть бюджет, репутационные требования к контенту и запрет на обычную рекламу. Именно поэтому она вынуждена искать органические каналы.</p>
+      <ul>
+        <li><strong>MiCA</strong> — европейский регламент о криптоактивах. Лицензия CASP по нему даёт право работать со всеми странами ЕС. <strong>MiCAR</strong> — то же самое, другое сокращение.</li>
+        <li><strong>BaFin</strong> — финансовый регулятор Германии. <strong>CNMV</strong> — Испании. <strong>FCA</strong> — Великобритании; <strong>FCA API</strong> означает регистрацию как поставщика платёжных услуг.</li>
+        <li><strong>VARA</strong> — регулятор виртуальных активов Дубая. <strong>CBUAE</strong> — центральный банк ОАЭ. <strong>CBB</strong> — центральный банк Бахрейна. Две лицензии сразу (например VARA плюс CBUAE) — редкое преимущество локального игрока.</li>
+        <li><strong>Деньги:</strong> буква после суммы — стадия раунда. <strong>A</strong> — первый крупный венчурный раунд, <strong>B</strong> — следующий. <strong>val</strong> — оценка компании. В скобках может стоять имя ведущего инвестора.</li>
+      </ul>
+      <p><strong>Вторая строка — чем компания занимается.</strong> <strong>Кастоди</strong> — хранение активов клиентов. <strong>Wallet-as-a-service</strong> — кошелёк как готовый сервис для встраивания в чужой продукт. <strong>On/off-ramp</strong> — ввод и вывод денег между обычной валютой и криптовалютой. <strong>AML</strong> — противодействие отмыванию, <strong>KYC</strong> — проверка личности клиента. <strong>MENA</strong> — Ближний Восток и Северная Африка. <strong>Market data</strong> — торговые данные для профессиональных участников.</p>
+      <p><strong>Третья строка — угол захода</strong>, то есть с чем к ним идти. <strong>Доля упоминаний</strong> (citation share) — как часто ИИ-ассистенты называют бренд в ответах на коммерческие вопросы по сравнению с конкурентами. Это главная метрика нашей услуги. <strong>Снапшот</strong> — быстрый бесплатный замер этой доли. <strong>Source mix</strong> — набор источников, из которых модель берёт информацию о компании: если там доминирует старая негативная пресса, ответ получается плохим независимо от реального положения дел.</p>
+      <p><strong>Четвёртая строка — покупатель.</strong> <strong>CMO</strong> — директор по маркетингу, <strong>Head of Marketing</strong> — руководитель маркетинга (в компаниях поменьше), <strong>VP Growth</strong> — вице-президент по росту. <strong>RFP</strong> — формальный запрос предложений: момент, когда компания уже составила короткий список поставщиков, и попасть в него позже почти невозможно.</p>
+    </div>
+  </details>
   <div class="statrow">
     <div class="stat"><b style="color:var(--crypto)">32</b><span>EN crypto/fintech (12 Tier A) - MiCA/VARA/FCA лицензии</span></div>
     <div class="stat"><b style="color:var(--saas)">24</b><span>EN B2B SaaS (10 Tier A) - fintech-adjacent, свежие раунды</span></div>
