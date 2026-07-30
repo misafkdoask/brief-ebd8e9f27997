@@ -18,7 +18,7 @@ body{font-family:'Golos Text',system-ui,sans-serif;background:var(--bg);color:va
 h1{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
 h1 em{font-style:normal;color:var(--accent)}
 .sub{margin-top:16px;color:var(--ink-soft);font-size:16px;max-width:60ch}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
 a.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s;border-left:3px solid var(--accent);display:block}
 a.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(0,0,0,.28)}
 a.card .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
@@ -37,7 +37,7 @@ a.card p{font-size:14px;color:var(--ink-soft)}
 <div class="wrap">
   <div class="kicker">Private · noindex · для Mikhail + Anna</div>
   <h1>AI Marketing Venture: <em>ресерч, план и таргеты</em></h1>
-  <p class="sub">Две презентационные страницы плюс полная база отчётов. Ссылка приватная и закрыта от поисковиков; не публикуйте её открыто.</p>
+  <p class="sub">Три страницы плюс полная база отчётов: стратегия и план, карта спроса, аудит покрытия направлений. Ссылка приватная и закрыта от поисковиков; не публикуйте её открыто.</p>
   <div class="cards">
     <a class="card" href="presentation.html">
       <div class="n">01 · Стратегия</div>
@@ -49,13 +49,19 @@ a.card p{font-size:14px;color:var(--ink-soft)}
       <h2>Таргет-карта</h2>
       <p>103 верифицированные компании, 42 Tier A с покупателями и углами захода, фильтр по полосам.</p>
     </a>
+    <a class="card" href="coverage.html">
+      <div class="n">03 · Аудит</div>
+      <h2>Карта покрытия</h2>
+      <p>Какие направления маркетинга ресерч разобрал, а какие нет: 84 дисциплины, сверка с отраслевой таксономией, найденные пробелы.</p>
+    </a>
   </div>
   <div class="docs">
     <div class="lbl">Исходные документы (markdown)</div>
     <ul>
       <li><a href="PLAN.md">PLAN.md</a></li>
       <li><a href="TARGETS.md">TARGETS.md</a></li>
-      <li><a href="research/">research/ (18 отчётов)</a></li>
+      <li><a href="COVERAGE.md">COVERAGE.md</a></li>
+      <li><a href="research/">research/ (23 отчёта)</a></li>
     </ul>
   </div>
   <p class="note">Материалы содержат стратегию, поимённые таргеты, партнёрские и юридические детали. Ссылка неугадываемая и с meta noindex, но GitHub Pages технически публичен: не постить в открытый доступ.</p>
